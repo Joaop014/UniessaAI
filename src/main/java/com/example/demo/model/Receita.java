@@ -4,16 +4,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+import java.util.List;
+
 @Entity
 public class Receita {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String atividade;
-    private String imageUrl;
 
-    private String modoDepreparo;
+    private List<String> ingredientes;
+
+    private List<String> imagesUrls;
+
+    private List<String> modoDepreparo;
 
     private String dica;
 
@@ -22,10 +27,10 @@ public class Receita {
     public Receita() {
     }
 
-    public Receita(String nome, String atividade, String imageUrl, String modoDepreparo, String dica, Tipo tipo) {
+    public Receita(String nome, List<String> ingredientes, List<String> imageUrl, List<String> modoDepreparo, String dica, Tipo tipo) {
         this.nome = nome;
-        this.atividade = atividade;
-        this.imageUrl = imageUrl;
+        this.ingredientes = ingredientes;
+        this.imagesUrls = imageUrl;
         this.modoDepreparo = modoDepreparo;
         this.dica = dica;
         this.tipo = tipo;
@@ -47,27 +52,28 @@ public class Receita {
         this.nome = nome;
     }
 
-    public String getAtividade() {
-        return atividade;
+
+    public List<String> getImagesUrls() {
+        return imagesUrls;
     }
 
-    public void setAtividade(String atividade) {
-        this.atividade = atividade;
+    public void setImagesUrls(List<String> imagesUrls) {
+        this.imagesUrls = imagesUrls;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public List<String> getIngredientes() {
+        return ingredientes;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setIngredientes(List<String> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
-    public String getModoDepreparo() {
+    public List<String> getModoDepreparo() {
         return modoDepreparo;
     }
 
-    public void setModoDepreparo(String modoDepreparo) {
+    public void setModoDepreparo(List<String> modoDepreparo) {
         this.modoDepreparo = modoDepreparo;
     }
 
@@ -85,5 +91,18 @@ public class Receita {
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Receita{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", ingredientes=" + ingredientes +
+                ", imagesUrls=" + imagesUrls +
+                ", modoDepreparo=" + modoDepreparo +
+                ", dica='" + dica + '\'' +
+                ", tipo=" + tipo +
+                '}';
     }
 }

@@ -3,5 +3,6 @@ package com.example.demo.model;
 public enum Tipo {
     LINHA1,
     LINHA2,
-    LINHA3
+    LINHA3,
+    NAO_LISTADO
 }

@@ -9,30 +9,43 @@
     <link href="estilo.css" rel="stylesheet">
 
     <style>
+        .background-color-card{
+            background-color: #8cd2ff;
+        }
+
+        .buttom-collor{
+            background-color: #63a8d4;
+            color: black;
+            border-color: #63a8d4;
+        }
+
+        .buttom-collor:hover{
+            background-color: #74c7fc;
+            color: black;
+            border-color: #74c7fc;
+        }
+
         h5 {
         margin-top: 20px;
         margin-bottom: 20px;
         }
     </style>
 </head>
-<body>
+<body style="background-color: #93b7cf;">
         <div class="w-100">
             <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-expand-sm">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Baby Food</a>
+                    <a class="navbar-brand" href="/home">Baby Food</a>
                     <div class="" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">inicio</a>
+                                <a class="nav-link" href="/home">inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">alimentos</a>
+                                <a class="nav-link" href="/alimentos.html">receitas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">receitas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">refeições</a>
+                                <a class="nav-link" href="/receitas/cadastrar">cadastrar</a>
                             </li>
                         </ul>
                     </div>
@@ -42,12 +55,12 @@
         <div class="col-3 col-sm-0"></div>
         <div class="col-6 container col-sm-12 justify-content-center ">
         <h5>Alimentos da semana: </h5>
-            <div class="card-group">
+            <div class="card-group " >
                 <div  th:each="receita: ${receitas}">
-                    <div th:if="${#strings.toString(receita.tipo) == 'LINHA1'}" class="card">
-                        <img th:src="${receita.imageUrl}" class="card-img-top tamanhoImagem" src="..." alt="Card image cap" style="height: 250px; width: 250px">
+                    <div th:if="${#strings.toString(receita.tipo) == 'LINHA1'}" class="card background-color-card p-1 m-1">
+                        <img th:src="${receita.imagesUrls[0]}" class="card-img-top" src="..." alt="Card image cap" style="height: 250px; width: 300px">
                         <div class="card-body">
-                            <button th:text="${receita.nome}" class="w-100 btn btn-transparent" style="font-weight: bold;">Ir</button>
+                            <a th:text="${receita.nome}" class="w-100 btn btn-transparent" style="font-weight: bold;" th:href="@{/receitas/{id} (id=${receita.id})}">Ir</a>
                         </div>
                     </div>
                 </div>
@@ -55,10 +68,10 @@
         <h5>Frutas da estação</h5>
             <div class="card-group">
                 <div  th:each="receita: ${receitas}">
-                    <div th:if="${#strings.toString(receita.tipo) == 'LINHA2'}" class="card">
-                        <img th:src="${receita.imageUrl}" class="card-img-top tamanhoImagem" src="..." alt="Card image cap" style="height: 250px; width: 250px">
+                    <div th:if="${#strings.toString(receita.tipo) == 'LINHA2'}" class="card background-color-card p-1 m-1">
+                        <img th:src="${receita.imagesUrls[0]}" class="card-img-top tamanhoImagem " src="..." alt="Card image cap" style="height: 250px; width: 300px">
                         <div class="card-body">
-                            <a th:text="${receita.nome}" class="w-100 btn btn-transparent" style="font-weight: bold;" th:href="@{/receitas/{id} (id=${receita.id})}">Ir</a>
+                            <a th:text="${receita.nome}" class=" btn btn-transparent" style="font-weight: bold;" th:href="@{/receitas/{id} (id=${receita.id})}">Ir</a>
                         </div>
                     </div>
                 </div>
@@ -66,10 +79,10 @@
             <h5>Legumes e verduras</h5>
             <div class="card-group">
                 <div  th:each="receita: ${receitas}">
-                    <div th:if="${#strings.toString(receita.tipo) == 'LINHA3'}" class="card">
-                        <img th:src="${receita.imageUrl}" class="card-img-top tamanhoImagem" src="..." alt="Card image cap" style="height: 250px; width: 250px">
+                    <div th:if="${#strings.toString(receita.tipo) == 'LINHA3'}" class="card background-color-card p-1 m-1">
+                        <img th:src="${receita.imagesUrls[0]}" class="card-img-top tamanhoImagem" src="..." alt="Card image cap" style="height: 250px; width: 300px">
                         <div class="card-body">
-                            <button th:text="${receita.nome}" class="w-100 btn btn-transparent" style="font-weight: bold;">Ir</button>
+                            <a th:text="${receita.nome}" class="w-100 btn btn-transparent" style="font-weight: bold;" th:href="@{/receitas/{id} (id=${receita.id})}">Ir</a>
                         </div>
                     </div>
                 </div>
@@ -77,16 +90,15 @@
 
 
         </div>
-        </div>
         <div class="col-3 col-sm-0"></div>
         <div class="bg-alert">
-            <footer class="bg-blue py-3 sticky-bottom mt-5">
+            <footer class="bg-blue py-3  sticky-bottom mt-5">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <h5>Contato</h5>
-                            <p>Endereço: Rua Exemplo, 123 - Bairro - Cidade/Estado</p>
-                            <p>Telefone: (00) 0000-0000</p>
+                            <p>Endereço: Av. das Américas, 505 - Morada da Colina, Uberlândia - MG, 38411-020</p>
+                            <p>Telefone: (34) 99171-0334</p>
                             <p>Email: exemplo@exemplo.com</p>
                         </div>
                         <div class="col-12 col-md-6">
