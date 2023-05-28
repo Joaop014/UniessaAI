@@ -47,8 +47,10 @@
                 </ul>
                 <h3>Armazenamento e validade: </h3>
                 <p class="mt-2" th:text="*{dica}">armazenamento e validade</p>
-                
             </div>
+        </div>
+        <div style="margin: 0 auto;">
+            <a class="w-100 btn btn-transparent" style="font-weight: bold;" th:href="@{/receitas/deletar/{id} (id=${receita.id})}">Apagar receita!</a>
         </div>
         <div class="col-3 col-sm-0"></div>
         <div>

@@ -45,4 +45,8 @@ public class ReceitaService {
         return repository.findById(id).orElseThrow();
     }
 
+    public void deletar(Long id){
+        repository.deleteById(id);
+    }
+
 }
