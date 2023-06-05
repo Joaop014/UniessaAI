@@ -55,7 +55,7 @@
             <img th:src="${receita.imagesUrls[0]}" class="card-img-top img-fluid" alt="..." style="height: 650px;">
             <div class="card-body">
                 <h5 th:text="${receita.nome}" class="card-title">alguma coisa</h5>
-                <a class=" btn" style="font-weight: bold;" th:href="@{/receitas/{id} (id=${receita.id})}">Ir</a>
+                <a class=" btn btn-primary w-100 buttom-collor  h-100" style="font-weight: bold;" th:href="@{/receitas/{id} (id=${receita.id})}">Ir</a>
             </div>
         </div>
     </div>

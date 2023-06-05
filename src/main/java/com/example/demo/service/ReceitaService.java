@@ -84,7 +84,7 @@ public class ReceitaService {
         url.add("https://guiadacozinha.com.br/wp-content/uploads/2020/03/Minibolo-cenoura-calda-chocolate.jpg");
         Receita receita =  new Receita(nome, ingredientes, url, modoDePreparo, "dica", Tipo.LINHA1);
 
-        if (repository.findByNome(receita.getNome()) != null ){
+        if (repository.findByNome(receita.getNome()) == null ){
             salvar(receita);
         }
         return receita;

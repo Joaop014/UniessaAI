@@ -4,6 +4,7 @@ import com.example.demo.model.Receita;
 import com.example.demo.model.ReceitaForm;
 import com.example.demo.model.Tipo;
 import com.example.demo.service.ReceitaService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,14 +40,6 @@ public class ReceitasController {
         System.out.println(receita);
         receitaService.salvar(receita);
         return "/receitas/cadastrar";
-    }
-
-    @DeleteMapping("/receitas/deletar/{id}")
-    public String apagar(@PathVariable Long id){
-        if(receitaService.findById(id) != null){
-            receitaService.deletar(id);
-        }
-        return "/receitas";
     }
 
 

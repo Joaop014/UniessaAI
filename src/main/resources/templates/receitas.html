@@ -38,19 +38,16 @@
                 
                 <h3 class="mb-2">Ingredientes:  </h3>
                 <ul>
-                    <li th:each="ingrediente : *{ingredientes}" th:text="${ingrediente}"></li>
+                    <li class="mt-2" th:each="ingrediente : *{ingredientes}" th:text="${ingrediente}"></li>
                 </ul>
 
                 <h3 class="mb-2">Como preparar: </h3>
                 <ul>
-                    <li th:each="modoDepreparo : *{modoDepreparo}" th:text="${modoDepreparo}"></li>
+                    <li class="mt-2" th:each="modoDepreparo : *{modoDepreparo}" th:text="${modoDepreparo}"></li>
                 </ul>
                 <h3>Armazenamento e validade: </h3>
                 <p class="mt-2" th:text="*{dica}">armazenamento e validade</p>
             </div>
-        </div>
-        <div style="margin: 0 auto;">
-            <a class="w-100 btn btn-transparent" style="font-weight: bold;" th:href="@{/receitas/deletar/{id} (id=${receita.id})}">Apagar receita!</a>
         </div>
         <div class="col-3 col-sm-0"></div>
         <div>
